@@ -1359,16 +1359,18 @@ namespace SaccFlightAndVehicles
                 VehicleRigidbody.AddForceAtPosition(Yawing, YawMoment.position, ForceMode.Force);
 
                 //Hammer
-                if (Vector3.Distance(Shackle.position, Anchor.position) > TetherLength)
+                float distance = Vector3.Distance(Shackle.position, Anchor.position);
+                if (distance > TetherLength)
                 {
-                    Vector3 PullDirection = (Shackle.position - Anchor.position).normalized;
-                    float PullSpeed = Vector3.Dot(VehicleRigidbody.velocity, PullDirection);
-                    if (PullSpeed > 0)
+                    Vector3 pullDirection = (Shackle.position - Anchor.position).normalized;
+                    float pullSpeed = Vector3.Dot(VehicleRigidbody.velocity, pullDirection);
+                    if (pullSpeed > 0)
                     {
-                        Vector3 PullVelocity = PullSpeed * PullDirection;
-                        Vector3 PullAccel = PullVelocity / DeltaTime;
-                        Vector3 PullForce = PullAccel * VehicleRigidbody.mass;
-                        VehicleRigidbody.AddForceAtPosition(PullForce * -1, Shackle.position, ForceMode.Force);
+                        Vector3 pullVelocity = pullSpeed * pullDirection;
+                        Vector3 pullAccel = pullVelocity / DeltaTime;
+                        Vector3 pullForce = pullAccel * VehicleRigidbody.mass;
+                        pullForce *= (distance / TetherLength); //prevent tether stretching
+                        VehicleRigidbody.AddForceAtPosition(pullForce * -1, Shackle.position, ForceMode.Force);
                     }
                 }
 
