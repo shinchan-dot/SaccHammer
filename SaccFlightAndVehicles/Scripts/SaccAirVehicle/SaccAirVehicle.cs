@@ -10,6 +10,11 @@ namespace SaccFlightAndVehicles
     [DefaultExecutionOrder(5)]//after dfuncs that can set values used by this
     public class SaccAirVehicle : UdonSharpBehaviour
     {
+        //Hammer
+        public Transform Anchor;
+        public Transform Shackle;
+        public float TetherLength = 100;
+
         [Tooltip("Base object reference")]
         public SaccEntity EntityControl;
         [Tooltip("The object containing all non-trigger colliders for the vehicle, their layers are changed when entering and exiting")]
@@ -1352,6 +1357,21 @@ namespace SaccFlightAndVehicles
                 VehicleRigidbody.AddForceAtPosition(Pitching, PitchMoment.position, ForceMode.Force);//deltatime is built into ForceMode.Force
                                                                                                      //apply yawing using yaw moment
                 VehicleRigidbody.AddForceAtPosition(Yawing, YawMoment.position, ForceMode.Force);
+
+                //Hammer
+                if (Vector3.Distance(Shackle.position, Anchor.position) > TetherLength)
+                {
+                    Vector3 PullDirection = (Shackle.position - Anchor.position).normalized;
+                    float PullSpeed = Vector3.Dot(VehicleRigidbody.velocity, PullDirection);
+                    if (PullSpeed > 0)
+                    {
+                        Vector3 PullVelocity = PullSpeed * PullDirection;
+                        Vector3 PullAccel = PullVelocity / DeltaTime;
+                        Vector3 PullForce = PullAccel * VehicleRigidbody.mass;
+                        VehicleRigidbody.AddForceAtPosition(PullForce * -1, Shackle.position, ForceMode.Force);
+                    }
+                }
+
                 //calc Gs
                 float gravity = 9.81f * DeltaTime;
                 LastFrameVel.y -= gravity; //add gravity

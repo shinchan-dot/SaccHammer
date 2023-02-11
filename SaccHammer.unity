@@ -1913,7 +1913,7 @@ PrefabInstance:
     - target: {fileID: 1094421957795580606, guid: 8894fa7e4588a5c4fab98453e558847d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.17
+      value: 27.09
       objectReference: {fileID: 0}
     - target: {fileID: 1094421957795580606, guid: 8894fa7e4588a5c4fab98453e558847d,
         type: 3}
@@ -1923,7 +1923,7 @@ PrefabInstance:
     - target: {fileID: 1094421957795580606, guid: 8894fa7e4588a5c4fab98453e558847d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 119.65
+      value: 133.15
       objectReference: {fileID: 0}
     - target: {fileID: 1094421957795580606, guid: 8894fa7e4588a5c4fab98453e558847d,
         type: 3}
@@ -8380,6 +8380,11 @@ PrefabInstance:
       propertyPath: publicVariablesUnityEngineObjects.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2168759596302437, guid: b15ac940e1c4d934f81546cc3bed689d, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2168759596302437, guid: b15ac940e1c4d934f81546cc3bed689d,
+        type: 3}
     - target: {fileID: 20084388710321274, guid: b15ac940e1c4d934f81546cc3bed689d,
         type: 3}
       propertyPath: serializedProgramAsset
@@ -8391,6 +8396,12 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 131285485830899562, guid: b15ac940e1c4d934f81546cc3bed689d,
+        type: 3}
+    - target: {fileID: 178926896512709694, guid: b15ac940e1c4d934f81546cc3bed689d,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 178926896512709694, guid: b15ac940e1c4d934f81546cc3bed689d,
         type: 3}
     - target: {fileID: 388422482235497824, guid: b15ac940e1c4d934f81546cc3bed689d,
         type: 3}
@@ -8729,6 +8740,12 @@ PrefabInstance:
       propertyPath: publicVariablesUnityEngineObjects.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4075196158679939147, guid: b15ac940e1c4d934f81546cc3bed689d,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4075196158679939147, guid: b15ac940e1c4d934f81546cc3bed689d,
+        type: 3}
     - target: {fileID: 4217865800906215776, guid: b15ac940e1c4d934f81546cc3bed689d,
         type: 3}
       propertyPath: _syncMethod
@@ -8851,6 +8868,12 @@ PrefabInstance:
       propertyPath: publicVariablesUnityEngineObjects.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7384226108303104416, guid: b15ac940e1c4d934f81546cc3bed689d,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7384226108303104416, guid: b15ac940e1c4d934f81546cc3bed689d,
+        type: 3}
     - target: {fileID: 7403881663383824660, guid: b15ac940e1c4d934f81546cc3bed689d,
         type: 3}
       propertyPath: ColliderEnableDelay
@@ -11955,6 +11978,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3938801785636545463, guid: a6c0823150e40ac4b88e3eebf0f4931a,
         type: 3}
+    - target: {fileID: 4327496282912357153, guid: a6c0823150e40ac4b88e3eebf0f4931a,
+        type: 3}
+      propertyPath: MaxGs
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327496282912357153, guid: a6c0823150e40ac4b88e3eebf0f4931a,
+        type: 3}
+      propertyPath: Anchor
+      value: 
+      objectReference: {fileID: 1973171036}
+    - target: {fileID: 4327496282912357153, guid: a6c0823150e40ac4b88e3eebf0f4931a,
+        type: 3}
+      propertyPath: Shackle
+      value: 
+      objectReference: {fileID: 2132058199}
     - target: {fileID: 4327496282912357153, guid: a6c0823150e40ac4b88e3eebf0f4931a,
         type: 3}
       propertyPath: serializationData.Prefab
@@ -18658,7 +18696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132058198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 1.5, z: -0.6}
+  m_LocalPosition: {x: -0.1, y: 1.5, z: -0.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1316752424}
