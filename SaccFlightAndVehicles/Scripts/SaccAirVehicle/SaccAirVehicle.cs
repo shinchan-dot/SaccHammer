@@ -14,6 +14,7 @@ namespace SaccFlightAndVehicles
         public Transform Anchor;
         public Transform Shackle;
         public float TetherLength = 100;
+        public bool IsTethered = true;
 
         [Tooltip("Base object reference")]
         public SaccEntity EntityControl;
@@ -1359,18 +1360,21 @@ namespace SaccFlightAndVehicles
                 VehicleRigidbody.AddForceAtPosition(Yawing, YawMoment.position, ForceMode.Force);
 
                 //Hammer
-                float distance = Vector3.Distance(Shackle.position, Anchor.position);
-                if (distance > TetherLength)
+                if (IsTethered)
                 {
-                    Vector3 pullDirection = (Shackle.position - Anchor.position).normalized;
-                    float pullSpeed = Vector3.Dot(VehicleRigidbody.velocity, pullDirection);
-                    if (pullSpeed > 0)
+                    float distance = Vector3.Distance(Shackle.position, Anchor.position);
+                    if (TetherLength < distance && distance < TetherLength + 20)
                     {
-                        Vector3 pullVelocity = pullSpeed * pullDirection;
-                        Vector3 pullAccel = pullVelocity / DeltaTime;
-                        Vector3 pullForce = pullAccel * VehicleRigidbody.mass;
-                        pullForce *= (distance / TetherLength); //prevent tether stretching
-                        VehicleRigidbody.AddForceAtPosition(pullForce * -1, Shackle.position, ForceMode.Force);
+                        Vector3 pullDirection = (Shackle.position - Anchor.position).normalized;
+                        float pullSpeed = Vector3.Dot(VehicleRigidbody.velocity, pullDirection);
+                        if (pullSpeed > 0)
+                        {
+                            Vector3 pullVelocity = pullSpeed * pullDirection;
+                            Vector3 pullAccel = pullVelocity / DeltaTime;
+                            Vector3 pullForce = pullAccel * VehicleRigidbody.mass;
+                            pullForce *= Mathf.Pow((distance / TetherLength), 5); //prevent tether stretching
+                            VehicleRigidbody.AddForceAtPosition(pullForce * -1, Shackle.position, ForceMode.Force);
+                        }
                     }
                 }
 

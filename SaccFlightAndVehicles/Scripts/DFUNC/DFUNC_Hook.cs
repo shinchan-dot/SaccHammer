@@ -42,7 +42,8 @@ namespace SaccFlightAndVehicles
             VehicleTransform = EntityControl.transform;
             VehicleAnimator = EntityControl.GetComponent<Animator>();
             VehicleRigidbody = EntityControl.GetComponent<Rigidbody>();
-            SetHookUp();
+            //SetHookUp();
+            SetHookDown();
         }
         public void DFUNC_Selected()
         {
@@ -195,6 +196,8 @@ namespace SaccFlightAndVehicles
             {
                 EntityControl.SendEventToExtensions("SFEXT_O_HookDown");
             }
+
+            SAVControl.SetProgramVariable("IsTethered", true);
         }
         public void SetHookUp()
         {
@@ -207,6 +210,8 @@ namespace SaccFlightAndVehicles
                 EntityControl.SendEventToExtensions("SFEXT_O_HookUp");
             }
             ReEnableBrake();
+
+            SAVControl.SetProgramVariable("IsTethered", false);
         }
         public void DisableBrake()
         {
