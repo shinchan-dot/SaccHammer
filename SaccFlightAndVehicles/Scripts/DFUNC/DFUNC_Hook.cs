@@ -79,7 +79,8 @@ namespace SaccFlightAndVehicles
         }
         public void SFEXT_G_RespawnButton()
         {
-            SetHookUp();
+            //SetHookUp();
+            SetHookDown();
         }
         public void SFEXT_L_PassengerEnter()
         {
