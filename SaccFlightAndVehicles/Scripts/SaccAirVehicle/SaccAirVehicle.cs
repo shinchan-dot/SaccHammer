@@ -14,6 +14,7 @@ namespace SaccFlightAndVehicles
         public Transform Anchor;
         public Transform Shackle;
         public float TetherLength = 100;
+        public float TetherRange = 20;
         public bool IsTethered = true;
         public float DistanceInst;
 
@@ -1365,7 +1366,7 @@ namespace SaccFlightAndVehicles
                 {
                     float distance = Vector3.Distance(Shackle.position, Anchor.position);
                     DistanceInst = distance;
-                    if (TetherLength < distance && distance < TetherLength + 20)
+                    if (TetherLength < distance && distance < TetherLength + TetherRange)
                     {
                         Vector3 pullDirection = (Shackle.position - Anchor.position).normalized;
                         float pullSpeed = Vector3.Dot(VehicleRigidbody.velocity, pullDirection);
@@ -1374,7 +1375,7 @@ namespace SaccFlightAndVehicles
                             Vector3 pullVelocity = pullSpeed * pullDirection;
                             Vector3 pullAccel = pullVelocity / DeltaTime;
                             Vector3 pullForce = pullAccel * VehicleRigidbody.mass;
-                            pullForce *= ((distance - TetherLength) * 2 + 1); //prevent tether stretching
+                            pullForce *= (((distance / TetherLength) -1) * 100 + 1); //prevent tether stretching
                             VehicleRigidbody.AddForceAtPosition(pullForce * -1, Shackle.position, ForceMode.Force);
                         }
                     }
