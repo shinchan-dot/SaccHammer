@@ -3798,19 +3798,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 464575770}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &464575776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464575771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 229740497, guid: 4ecd63eff847044b68db9453ce219299, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contentType: 1
 --- !u!1 &731430110
 GameObject:
   m_ObjectHideFlags: 0
@@ -7215,7 +7202,7 @@ PrefabInstance:
     - target: {fileID: 815853151199582683, guid: d36b415e069e39f4aade896c48207a7f,
         type: 3}
       propertyPath: serializationData.SerializedFormat
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1234660811359357426, guid: d36b415e069e39f4aade896c48207a7f,
         type: 3}
@@ -7817,7 +7804,7 @@ PrefabInstance:
     - target: {fileID: 5572586947977161524, guid: d36b415e069e39f4aade896c48207a7f,
         type: 3}
       propertyPath: serializationData.SerializedFormat
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5572586947977161525, guid: d36b415e069e39f4aade896c48207a7f,
         type: 3}
